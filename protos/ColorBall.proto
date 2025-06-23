@@ -1,0 +1,39 @@
+#VRML_SIM R2019a utf8
+# license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+# license url: https://cyberbotics.com/webots_assets_license
+# Color Ball.
+
+PROTO ColorBall [
+  field SFVec3f    translation     0 0 0
+  field SFRotation rotation        0 0 1 0
+  field SFFloat    radius          0.02
+  field SFColor    color           1 0 0
+  field SFFloat    mass            0
+  field SFString   name            "ball"
+]
+{
+  Solid {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    children [
+      DEF Cube Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor IS color
+          }
+        }
+        geometry DEF Pole Sphere {
+          radius IS radius
+        }
+      }
+    ]
+    boundingObject USE Cube
+    %{ if fields.mass.value > 0 then }%
+    physics Physics {
+      density -1
+      mass %{= fields.mass.value }%
+    }
+    %{ end }%
+  }
+}

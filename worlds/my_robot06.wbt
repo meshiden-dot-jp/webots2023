@@ -1,0 +1,122 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.36987745934012517 -0.912020738287846 -0.17722538758593873 5.351289931229749
+  position 0.7978759263422331 0.4815864191301385 0.7297294891522087
+  follow "braitenberg"
+  followOrientation TRUE
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+TinkerbotsBase {
+  translation -0.045 0.02625 -0.04
+  rotation 0 1 0 3.141592644
+  name "braitenberg"
+  controller "my_controller6"
+  upASlot TinkerbotsCubiePyramid {
+    frontSlot TinkerbotsCubieTriangle {
+      rotation 0 0 1 3.1415
+    }
+  }
+  downSlot TinkerbotsMotor {
+    rotation 0 0 1 1.5707996938995747
+    name "A"
+    upSlot TinkerbotsColorSensor {
+      rotation 0 0 1 1.57
+      name "F"
+      upSlot TinkerbotsPivot {
+        rotation 0 0 1 3.14
+        name "C"
+        slot TinkerbotsPivot {
+          name "D"
+          slot TinkerbotsGrabber {
+            name "E"
+            fingerASlot TinkerbotsFinger {
+            }
+            fingerBSlot TinkerbotsFinger {
+            }
+            fingerCSlot TinkerbotsFinger {
+            }
+          }
+        }
+      }
+      rightSlot TinkerbotsColorSensor {
+        rotation 0 0 1 -1.57
+        name "G"
+      }
+    }
+    frontSlot TinkerbotsAxle {
+      endSlot TinkerbotsWheel {
+      }
+    }
+  }
+  rightSlot TinkerbotsCube {
+    leftCSlot TinkerbotsCubiePyramid {
+      rotation 0 0 1 -1.5708
+      frontSlot TinkerbotsCubieTriangle {
+        rotation 0 0 1 3.1415
+      }
+    }
+    rightSlot TinkerbotsMotor {
+      rotation 0 0 1 -1.5708
+      name "B"
+      frontSlot TinkerbotsAxle {
+        endSlot TinkerbotsWheel {
+        }
+      }
+    }
+    frontSlot TinkerbotsCube {
+      leftSlot TinkerbotsCube {
+        upSlot TinkerbotsCube {
+        }
+      }
+    }
+  }
+}
+DEF Sheet Solid {
+  rotation 0 1 0 1.57
+  children [
+    DEF Sheet Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "textures/course.png"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+        }
+      }
+      geometry Box {
+        size 1 0.0015 1
+      }
+    }
+  ]
+  boundingObject USE Sheet
+}
+PlasticCrate {
+  translation 0 0 0.3
+  name "plastic crate(1)"
+  size 0.01 0.01 0.01
+}
+PlasticCrate {
+  translation 0.1 0 0.3
+  name "plastic crate(2)"
+  size 0.01 0.01 0.01
+}
+ColorBall {
+  translation 0 0.025 0.3
+  radius 0.015
+  mass 0.01
+}
+ColorBall {
+  translation 0.1 0.025 0.3
+  radius 0.015
+  color 0 0 1
+  mass 0.01
+  name "ball(1)"
+}

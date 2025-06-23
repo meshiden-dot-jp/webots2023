@@ -1,0 +1,46 @@
+#VRML_SIM R2019a utf8
+# license: Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+# license url: https://cyberbotics.com/webots_assets_license
+# Color Box.
+
+PROTO ColorBox [
+  field SFVec3f    translation     0 0 0
+  field SFRotation rotation        0 0 1 0
+  field SFVec3f    size            0.04 0.04 0.04
+  field SFColor    color           1 0 0
+  field SFFloat    mass            0
+  field SFString   name            "box"
+]
+{
+  Solid {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    children [
+      DEF Cube Shape {
+        appearance Appearance {
+          material Material {
+            diffuseColor IS color
+          }
+        }
+        geometry Box {
+          size IS size
+        }
+      }
+    ]
+    boundingObject USE Cube
+    %{ if fields.mass.value > 0 then }%
+    physics Physics {
+      density -1
+      mass %{= fields.mass.value }%
+      centerOfMass [
+        0 0 0
+      ]
+      inertiaMatrix [
+        %{= fields.mass.value * (fields.size.value.y + fields.size.value.z) / 12.0 }% %{= fields.mass.value * (fields.size.value.z + fields.size.value.x) / 12.0 }% %{= fields.mass.value * (fields.size.value.x + fields.size.value.y) / 12.0 }%
+        0 0 0
+      ]
+    }
+    %{ end }%
+  }
+}

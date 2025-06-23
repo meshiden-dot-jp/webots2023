@@ -1,0 +1,11 @@
+Webots Proto Cache File version 1.4
+protoFileHash: fa541b9ef735111526eb1f8d5da85e49
+containsDevices: 0
+baseType: Slot
+slotType: lego\scross\smale
+parameters: translation,rotation,name
+tags: 
+license:  Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+licenseUrl:  https://cyberbotics.com/webots_assets_license
+documentationUrl: 
+info: Tinkerbots\swheel.\n

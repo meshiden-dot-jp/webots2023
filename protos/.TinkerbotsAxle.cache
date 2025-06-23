@@ -1,0 +1,11 @@
+Webots Proto Cache File version 1.4
+protoFileHash: 2df74edaa9426bbbd85254e596d2267e
+containsDevices: 0
+baseType: Slot
+slotType: lego\scross\sfemale
+parameters: translation,rotation,name,endSlot,length
+tags: static
+license:  Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+licenseUrl:  https://cyberbotics.com/webots_assets_license
+documentationUrl: 
+info: Tinkerbots\saxle.\nhttps://www.tinkerbots.com\n
